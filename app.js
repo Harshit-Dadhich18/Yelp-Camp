@@ -27,7 +27,8 @@ const userRoutes = require('./routes/user');
 const DbUrl = process.env.DB_URL || 'mongodb://127.0.0.1:27017/yelp-camp1'; 
 // mongodb://127.0.0.1:27017/yelp-camp1
 mongoose.connect(DbUrl,
-    {}).then(() => {
+    { useNewUrlParser: true,
+        useUnifiedTopology: true}).then(() => {
         console.log("Connected to Mongoose");
     })
     .catch(e => {
